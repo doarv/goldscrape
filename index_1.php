@@ -30,20 +30,37 @@
             $url = "http://www.bulliondirect.com/nucleo.do";
             $raw = file_get_contents($url);
             $newlines = array("\t","\n","\r","\x20\x20","\0","\x0B");
-            $stringStartPos = strpos($raw, $BDirect_metalArray[0]);
-            $stringEndPos = strpos($raw, $BDirect_metalArray[11]);
-            echo $stringEndPos."end";
-            echo $stringStartPos."start";
-            $content = str_replace($newlines, "", substr($stringStartPos, $stringEndPos, html_entity_decode($raw)));
-            echo $content;
+            $content = str_replace($newlines, "", html_entity_decode($raw));
+            
+            
+            $stringStartPos = strpos($content, "<tbody>");
+            $stringEndPos = strpos($content, "</tbody>"); #$stringStartPos + 300;
+            $stringOffset = $stringEndPos - $stringStartPos;
+            echo $stringStartPos."Start";
+            echo $stringEndPos."End";
+            $content2 = substr($content, $stringStartPos, $stringOffset);
+            echo $content2;
             #echo $content;
             $tempFILE = fopen($BDirect_tempFile,'w');
-            fwrite($tempFILE, $content);
+            fwrite($tempFILE, $content2);
             fclose($tempFILE);
             
+            $MetalNameStart = 'shadow">';
+            $MetalNameEnd = ')>';
             
+            #function striper($begin, $end){
             #$file = file_get_contents($BDirect_tempFile, "r");
-
+            /*
+             * METAL NAME
+            Start Delimeter for metal name = "shadow">"
+            End Delimeter for metal name = the following )<
+             
+            ASK PRICE
+            Start Delimeter first occurence of "$"
+            End Delimeter first occurence of "</" after $
+             * 
+             * 
+             */
             
 
         ?>
