@@ -48,6 +48,21 @@
             $MetalNameStart = 'shadow">';
             $MetalNameEnd = ')>';
             
+            #http://www.spaweditor.com/scripts/regex/
+            getPositions ($content2, $MetalNameStart, $MetalNameEnd);
+            
+            function getPositions ($stringContent, $Sdelimiter, $Edelimiter){
+                echo "function entered";
+                echo $stringContent."STRING CONTENT";
+                echo $Sdelimiter;
+                echo $Edelimiter;
+                
+                $offset = 0;
+                while (($pos = strpos($stringContent, $Sdelimiter, $offset)) !== false){
+                    echo "found ".$Sdelimiter. "at ".$pos. "\n";
+                    $offset = $pos +1;
+                }
+            }
             #function striper($begin, $end){
             #$file = file_get_contents($BDirect_tempFile, "r");
             /*
