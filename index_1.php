@@ -48,8 +48,12 @@
             $MetalNameStart = 'shadow">';
             $MetalNameEnd = ')>';
             
+            
+            #preg_quote(shadow">)([a-zA-Z0-9_" "]+preg_quote()>)
             #http://www.spaweditor.com/scripts/regex/
             getPositions ($content2, $MetalNameStart, $MetalNameEnd);
+            
+            preg_match_all($exp,$haystack,$matches);
             
             function getPositions ($stringContent, $Sdelimiter, $Edelimiter){
                 echo "function entered";
