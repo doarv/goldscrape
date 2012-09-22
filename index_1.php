@@ -46,7 +46,7 @@
             fclose($tempFILE);
             
             $MetalNameStart = 'shadow">';
-            $MetalNameEnd = ')>';
+            $MetalNameEnd = '>';
             
             
             #preg_quote(shadow">)([a-zA-Z0-9_" "]+preg_quote()>)
