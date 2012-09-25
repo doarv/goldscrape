@@ -21,10 +21,8 @@
             'Silver - Bullion .999 pure [Bar] - Engelhard (100.000 oz.)',
             'Canadian Maple Leaf Silver Coin (1.000 oz.)'
             );
-            echo $BDirect_metalArray;
-            echo $BDirect_metalArray[0];
             $page = '';
-            $today = date("m_d_y_H_i");
+            $today = date("Y-m-d H:i:s");
             #$date = date('Format String');
             $BDirect_tempFile = "/Users/mbp12/Documents/BDirecttempFile".$today;
             $url = "http://www.bulliondirect.com/nucleo.do";
